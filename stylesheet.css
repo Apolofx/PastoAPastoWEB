@@ -1,0 +1,6 @@
+article {
+    display: flex;
+    box-shadow: 3px;
+    background-color: black;
+    margin-bottom: 3px;
+}
