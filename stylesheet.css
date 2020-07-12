@@ -1,6 +1,69 @@
-article {
-    display: flex;
-    box-shadow: 3px;
-    background-color: black;
-    margin-bottom: 3px;
+body {
+    font-family: 'Quicksand', sans-serif;
 }
+
+main {
+    /* border: 3px solid yellow; */
+}
+
+.contenedor {
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+form, #paso-uno {
+
+    width: 500px;
+}
+
+#paso-uno {
+    display: flex;
+    justify-content: center;
+    color: #404040;
+    font-weight: 400;
+    /* border: 1px solid black; */
+    height: auto;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 2em 0 2em 0;
+    /* border: 1px solid black; */
+}
+
+ul {
+    list-style-type: none;
+}
+
+label {
+    display: block;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: #21bf73;
+}
+
+input {
+    border: 1px solid grey;
+    border-radius: 3px;
+    width: 14em;
+}
+
+a:link {
+    color: #404040;
+}
+
+a:hover {
+}
+
+#active {
+    color:#21bf73;
+} 
+
+
+
+
