@@ -2,6 +2,11 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+
+#navbarNav {
+    justify-content: flex-end;
+}
+
 main {
     /* border: 3px solid yellow; */
 }
@@ -56,6 +61,9 @@ input {
     /*border: 1px solid grey;*/
     border-radius: 3px;
     width: 14em;
+    border: 1.2px;
+    border-style: solid;
+    border-color: #40404080;
 }
 
 a.nav-link {
@@ -66,17 +74,30 @@ a.nav-link {
     color: #21bf73;
 } 
 
-button {
+form>button {
     border-radius: 3px;
     box-shadow: 0;
+    border: solid 1.2px;
     border-color: rgba(0,0,0,0.5);
+    transition: 0.4s;
 }
 
-button:hover {
+form>button:hover {
     /*background-color: #21bf73;*/
     border-color: #21bf73;
     border-radius: 3px;
-    transition: 0.7s;
+    transition: 0.4s;
+    background: #fdfdfd;
+    box-shadow: 1px 1px 7px 2px #21bf73; /* h-offset v-offset blur spread color */
+}
+
+.navbar-toggler {
+    transition: 0.4s;
+}
+
+.navbar-toggler:hover {
+    transition: 0.4s;
+    background: #fdfdfd;
 }
 
 footer {
