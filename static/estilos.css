@@ -1,0 +1,114 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+#navbarNav {
+    justify-content: flex-end;
+}
+
+main {
+    /* border: 3px solid yellow; */
+}
+
+.contenedor {
+    /*border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+form, #paso-uno{
+    width: 500px;
+}
+
+#paso-uno {
+    display: flex;
+    justify-content: center;
+    color: #404040;
+    font-weight: 400;
+    /*border: 1px solid black; */
+    height: auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    margin: 2em 0 2em 0;
+    /*border: 1px solid black; */
+    box-sizing: border-box;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    /*border: 1px solid green;*/
+    padding: 0;
+}
+
+label {
+    display: block;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: #21bf73;
+}
+
+input {
+    /*border: 1px solid grey;*/
+    border-radius: 3px;
+    width: 14em;
+    border: 1.2px;
+    border-style: solid;
+    border-color: #40404080;
+}
+
+a.nav-link {
+    color: #404040;
+}
+
+#active {
+    color: #21bf73;
+} 
+
+form>button {
+    border-radius: 3px;
+    box-shadow: 0;
+    border: solid 1.2px;
+    border-color: rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+form>button:hover {
+    /*background-color: #21bf73;*/
+    border-color: #21bf73;
+    border-radius: 3px;
+    transition: 0.4s;
+    background: #fdfdfd;
+    box-shadow: 1px 1px 7px 2px #21bf73; /* h-offset v-offset blur spread color */
+}
+
+.navbar-toggler {
+    transition: 0.4s;
+}
+
+.navbar-toggler:hover {
+    transition: 0.4s;
+    background: #fdfdfd;
+}
+
+footer {
+    background: #21bf739f;
+    height: 10vh;
+    width: 100%;
+    font-family: 'Covered By Your Grace', cursive;
+    font-size: 5vh;
+    text-align: center;
+    padding-top: 2vh;
+    margin-top: 2vh;
+    position: fixed;
+    bottom: 0;
+}
