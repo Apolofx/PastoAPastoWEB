@@ -74,15 +74,16 @@ a.nav-link {
     color: #21bf73;
 } 
 
-form>button {
+#boton_siguiente {
     border-radius: 3px;
     box-shadow: 0;
     border: solid 1.2px;
     border-color: rgba(0,0,0,0.5);
     transition: 0.4s;
+    width: auto;
 }
 
-form>button:hover {
+#boton_siguiente:hover {
     /*background-color: #21bf73;*/
     border-color: #21bf73;
     border-radius: 3px;
