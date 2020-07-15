@@ -3,8 +3,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SubmitField
 from wtforms.validators import DataRequired
 
-app = Flask(__name__)
 
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess key'
 
 class PantallaPasoUno(FlaskForm):
