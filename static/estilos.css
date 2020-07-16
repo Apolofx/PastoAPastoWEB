@@ -17,7 +17,6 @@ main {
 
 
 nav {
-    height: 70px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 0;
@@ -145,14 +144,19 @@ a.nav-link {
 }
 
 #boton_siguiente:active {
-    transition: 0.5ms;
+    transition: 0.9ms;
     padding-left: 10px;
     padding-right: 10px;
 } 
 
 .navbar-toggler {
     transition: 0.4s;
+    outline: none;
     /* border-color: #fdfdfd; */
+}
+
+.navbar-toggler:active, .navbar-toggler:focus {
+    outline-color:#21bf739f;
 }
 
 .navbar-toggler:hover {
