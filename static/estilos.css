@@ -113,6 +113,7 @@ input {
     border: 1.2px;
     border-style: solid;
     border-color: #40404080;
+    outline-color:#21bf739f; 
 }
 
 a.nav-link {
@@ -142,6 +143,12 @@ a.nav-link {
     background: #fdfdfd;
     box-shadow: 1px 1px 7px 2px #21bf73; /* h-offset v-offset blur spread color */
 }
+
+#boton_siguiente:active {
+    transition: 0.5ms;
+    padding-left: 10px;
+    padding-right: 10px;
+} 
 
 .navbar-toggler {
     transition: 0.4s;
