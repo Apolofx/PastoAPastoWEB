@@ -17,9 +17,9 @@ def index():
 	form = PantallaPasoUno()
 
 	if request.method=='POST' and form.validate():
-		session['fecha']=form.fecha.data
-		session['establecimiento']=form.establecimiento.data
-		session['localidad']=form.localidad.data
+		session['fecha'] = form.fecha.data
+		session['establecimiento'] = form.establecimiento.data
+		session['localidad'] = form.localidad.data
 		return redirect(url_for('paso2'))
 	return render_template('index.html', form=form)
 	
