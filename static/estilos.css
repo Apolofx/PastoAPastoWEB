@@ -126,10 +126,12 @@ a.nav-link {
 #boton_siguiente {
     border-radius: 3px;
     box-shadow: 0;
-    border: solid 1.2px;
-    border-color: rgba(0,0,0,0.5);
+    border: 1.2px solid #cccccc;;
+    background: #f3f0f0;
+    /* border-color: rgba(0,0,0,0.5); */
     transition: 0.4s;
     width: auto;
+    outline: none;
 }
 
 #boton_siguiente:hover {
