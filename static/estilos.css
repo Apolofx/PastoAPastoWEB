@@ -22,8 +22,8 @@ main {
     align-items: center;
     border: 1.1px solid;
     border-color: #d9e4d6f0;
-    margin-top: 10%;
-    padding: 0 0 2em 0;
+    margin-top: 5%;
+    padding: 0 0 5% 0;
     border-top: none;
     border-radius: 5px;
     box-shadow: 1px 1px 7px 2px #d9e4d6f0; /* h-offset v-offset blur spread color */
@@ -37,11 +37,16 @@ form, #paso-uno{
 #paso-uno {
     display: flex;
     justify-content: center;
-    color: #404040;
-    font-weight: 400;
-    /*border: 1px solid black; */
     height: auto;
     position: relative;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background: #40404010;
+    color: #404040;
+    font-weight: 400;
+    padding-top: 5px;
+    /*border: 1px solid black; */
+
 }
 
 form {
@@ -106,6 +111,7 @@ a.nav-link {
 
 .navbar-toggler {
     transition: 0.4s;
+    /* border-color: #fdfdfd; */
 }
 
 .navbar-toggler:hover {
