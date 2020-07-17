@@ -13,7 +13,7 @@ class PantallaPasoUno(FlaskForm):
     siguiente = SubmitField("Siguiente")
 
 class PantallaPasoDos(FlaskForm):
-    area_cuadrante = SelectField(choices=[('1', 1), ('0.25', 0.25)], validators=[DataRequired()])
+    area_cuadrante = SelectField(choices=[('1', '1 m\u00B2'), ('0.25', '0.25 m\u00B2')], validators=[DataRequired()])
     num_vacas = IntegerField(validators=[DataRequired(), NumberRange(min=1)])
     porcen_matseca = IntegerField(validators=[DataRequired(), NumberRange(min=1, max=100)])
     superf_parcela = IntegerField(validators=[DataRequired(), NumberRange(min=1)])
@@ -42,12 +42,15 @@ def paso2():
 		session['recurso'] = form.recurso.data
 		session['lote'] = form.lote.data
 		return redirect(url_for('paso3'))
+	print(form.errors)
 	return render_template('paso2.html', form=form)
 
 
 @app.route('/paso3')
 def paso3():
 	form = PantallaPasoDos()
+	print(session.get('establecimiento'))
+	print(session.get('area-cuadrante'))
 	return render_template('paso3.html', form=form)
 
 

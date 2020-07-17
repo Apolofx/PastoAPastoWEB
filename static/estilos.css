@@ -58,7 +58,6 @@ nav {
     border-top: none;
     border-radius: 5px;
     box-shadow: 1px 7px 7px 2px #d9e4d6f0; /* h-offset v-offset blur spread color */
-    flex-shrink: 1;
 }
 
 form, #paso-uno{
@@ -173,6 +172,6 @@ footer {
     text-align: center;
     padding-top: 2vh;
     margin-top: 2vh;
-    position: fixed;
+    position: relative;
     bottom: 0;
 }
