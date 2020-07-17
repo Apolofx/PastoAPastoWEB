@@ -54,7 +54,3 @@ def paso3():
 	return render_template('paso3.html', form=form)
 
 
-
-''' Error 1: choices tira un error de "typeerror cannot unpack non iterable int object"
-
-Error 2: no figuran los errores en el html cuando la persona no completa los datos correctamente'''
