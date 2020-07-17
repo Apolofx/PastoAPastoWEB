@@ -1,0 +1,98 @@
+CALCULOS PASTO A PASTO:
+
+Calculo de Promedio
+
+  recibe un array y devuelve el promedio de todos los numeros del array.
+
+*********--------------------------------------------------------------------********
+IMPLEMENTACION EN JS
+
+      function promediar(arr) {
+        let total =  arr.reduce((acumulador, elemento) => acumulador += elemento)
+        let promedio = total / arr.length
+        return promedio
+      }
+
+
+------------------------------------------------------------------------------------------
+
+
+Calculo de Materia Seca Disponible por Hectarea (en Kg)
+
+  "kg de materia seca disponible por hectarea" = (Promedio ("materia verde disponible") / ("area del cuadrante")) * ("porcentaje de materia seca") * 100
+
+*********--------------------------------------------------------------------*********
+
+IMPLEMENTACION EN JS
+
+    function KgMSDispHa() {
+      var res = ((promedio("ti_MVdisp") / getNumber("text_inputCuadrante"))*(getNumber("text_inputPorcMS") *100));
+      return res;
+    }
+
+
+------------------------------------------------------------------------------------------
+
+
+Calculo de Materia Seca Remanente por Hectarea (en Kg)
+
+  "kg de materia seca remanente por hectarea" = (Promedio ("materia verde remanente") / ("area del cuadrante")) * ("porcentaje de materia seca") * 100
+
+*********--------------------------------------------------------------------*********
+
+IMPLEMENTACION EN JS
+
+    function KgMSRemHa() {
+      var res = ((promedio("ti_MVrem") / getNumber("text_inputCuadrante"))*(getNumber("text_inputPorcMS") *100));
+      return res;
+    }
+
+------------------------------------------------------------------------------------------
+
+
+Calculo de Consumo de Materia Seca por Hectarea (en Kg)
+
+  "consumo de materia seca por hectarea" = ("kg de materia seca disponible por hectarea") - ("kg de materia seca remanente por hectarea")
+
+*********--------------------------------------------------------------------*********
+
+IMPLEMENTACION EN JS
+
+    function ConsumoKgMsHa() {
+      var res = getNumber("lbl_ResMSdisp") - getNumber("lbl_ResMSrem");
+      return res;
+    }
+
+
+------------------------------------------------------------------------------------------
+
+
+Calculo de Porcentaje de Aprovechamiento (en %)
+
+  "porcentaje de aprovechamiento" = (("consumo de materia seca por hectarea") / ("kg de materia seca disponible por hectarea")) * 100
+
+*********--------------------------------------------------------------------*********
+
+IMPLEMENTACION EN JS
+
+    function PorceAprov() {
+      var res = (getNumber("lbl_ResConsumoMsha") / getNumber("lbl_ResMSdisp")) * 100;
+      return res;
+    }
+
+
+------------------------------------------------------------------------------------------
+
+
+Calculo de Consumo Animal
+
+  "consumo animal" = ( ("consumo materia seca por hectarea") * ("superficie de parcela") ) / ("cantidad de vacas")
+
+*********--------------------------------------------------------------------*********
+
+IMPLEMENTACION EN JS
+
+    function ConsumoAnimal() {
+      var res = (getNumber("lbl_ResConsumoMsha") * getNumber("text_inputSupparcela")) / getNumber("text_inputNrovaca");
+      return res;
+    }
