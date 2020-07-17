@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, flash
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import StringField, DateField, SubmitField, SelectField, IntegerField
+from wtforms.validators import DataRequired, NumberRange
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess key'
@@ -12,18 +12,46 @@ class PantallaPasoUno(FlaskForm):
     localidad = StringField(validators=[DataRequired()])
     siguiente = SubmitField("Siguiente")
 
+class PantallaPasoDos(FlaskForm):
+    area_cuadrante = SelectField(choices=[('1', 1), ('0.25', 0.25)], validators=[DataRequired()])
+    num_vacas = IntegerField(validators=[DataRequired(), NumberRange(min=1)])
+    porcen_matseca = IntegerField(validators=[DataRequired(), NumberRange(min=1, max=100)])
+    superf_parcela = IntegerField(validators=[DataRequired(), NumberRange(min=1)])
+    recurso = StringField(validators=[DataRequired()])
+    lote = StringField(validators=[DataRequired()])
+    siguiente = SubmitField("Siguiente")
+
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
 	form = PantallaPasoUno()
-
-	if request.method=='POST' and form.validate():
+	if request.method == 'POST' and form.validate():
 		session['fecha'] = form.fecha.data
 		session['establecimiento'] = form.establecimiento.data
 		session['localidad'] = form.localidad.data
 		return redirect(url_for('paso2'))
 	return render_template('index.html', form=form)
 	
-@app.route('/paso2')
+@app.route('/paso2', methods=['GET', 'POST'])
 def paso2():
-	return render_template('paso2.html')
-# q
+	form = PantallaPasoDos()
+	if request.method == 'POST' and form.validate():
+		session['area-cuadrante'] = form.area_cuadrante.data
+		session['numero-de-vacas'] = form.num_vacas.data
+		session['porcentaje-materia-seca'] = form.porcen_matseca.data
+		session['superficie-parcela'] = form.superf_parcela.data
+		session['recurso'] = form.recurso.data
+		session['lote'] = form.lote.data
+		return redirect(url_for('paso3'))
+	return render_template('paso2.html', form=form)
+
+
+@app.route('/paso3')
+def paso3():
+	form = PantallaPasoDos()
+	return render_template('paso3.html', form=form)
+
+
+
+''' Error 1: choices tira un error de "typeerror cannot unpack non iterable int object"
+
+Error 2: no figuran los errores en el html cuando la persona no completa los datos correctamente'''

@@ -16,7 +16,7 @@
     rel="stylesheet">
 
 
-  <title>Pantalla 2 - Pasto a Pasto</title>
+  <title>Pantalla 3 - Pasto a Pasto</title>
 </head>
 
 <body>
@@ -59,10 +59,10 @@
             <a class="nav-link" href="#">Paso 1</a>
           </li>
           <li class="nav-item">
-            <a id="active" class="nav-link active" href="#">Paso 2</a>
+            <a class="nav-link " href="#">Paso 2</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Paso 3</a>
+            <a id="active" class="nav-link active" href="#">Paso 3</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Paso 4</a>
@@ -76,21 +76,21 @@
 
           <li>
             <label for="area-cuadrante">Area Cuadrante</label>
-            {{ form.area_cuadrante(id='area-cuadrante', placeholder="Metros cuadrados") }}
+            {{ form.area_cuadrante(id='area-cuadrante', placeholder="Metros cuadrados", type='select') }}
           </li>
           <li>
             <label for="cantidad-vacas">Cantidad de Vacas</label>
-            {{ form.num_vacas(id='cantidad-vacas', placeholder="En numeros", type='number', min="1") }}
+            {{ form.num_vacas(id='cantidad-vacas', placeholder="En numeros", type='number') }}
           </li>
           
           <li>
             <label for="materia-seca">Materia Seca Disponible</label>
-            {{ form.porcen_matseca(id='materia-seca', placeholder="%", type='number', min="1") }}
+            {{ form.porcen_matseca(id='materia-seca', placeholder="%", type='number') }}
           </li>
 
           <li>
             <label for="superficie-parcela">Superficie de la parcela</label>
-            {{ form.superf_parcela(id='superficie-parcela', placeholder="En hectáreas", type='number', min="1") }}
+            {{ form.superf_parcela(id='superficie-parcela', placeholder="En hectáreas", type='number') }}
           </li>
 
           <li>
