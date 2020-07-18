@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="../static/estilos.css">
+  <link rel="icon" href="../static/favicon.png">
+  <script src="https://kit.fontawesome.com/be05e512a3.js" crossorigin="anonymous"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -21,7 +23,6 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- <a class="navbar-brand" href="#">Pasto a Pasto</a> -->
     <a class="navbar-brand" id="titulo" href="#">
       <img class="mb-2" id="logo" src="/static/logo.png" alt="logo-pasto-a-pasto">
       <span class="ml-2">Pasto a Pasto</span>
@@ -74,37 +75,21 @@
         {{ form.hidden_tag()}}
         <ul>
 
-          <li>
-            <label for="area-cuadrante">Area Cuadrante</label>
-            {{ form.area_cuadrante(id='area-cuadrante', placeholder="Metros cuadrados", type='select') }}
+          <li id="addFieldListItem">
+            <button type="button" id="addNewField">Agregar <i class="fas fa-plus"></i></button>
           </li>
-          <li>
-            <label for="cantidad-vacas">Cantidad de Vacas</label>
-            {{ form.num_vacas(id='cantidad-vacas', placeholder="En numeros", type='number') }}
-          </li>
-          
-          <li>
-            <label for="materia-seca">Materia Seca Disponible</label>
-            {{ form.porcen_matseca(id='materia-seca', placeholder="%", type='number') }}
+          <li>  
+            <!-- {% for subdir in form.subdirs %} -->
+            <!-- {{ forms.render_field(subdir.name) }}
+            {% endfor %} -->
+            {{ form.subDirList() }}
           </li>
 
-          <li>
-            <label for="superficie-parcela">Superficie de la parcela</label>
-            {{ form.superf_parcela(id='superficie-parcela', placeholder="En hectáreas", type='number') }}
-          </li>
-
-          <li>
-            <label for="recurso">Recurso</label>
-            {{ form.recurso(id='recurso', placeholder="Ej.: Alfalfa", type='text') }}
-          </li>
-
-          <li>
-            <label for="lote">Lote</label>
-            {{ form.lote(id='lote', placeholder="Lote 5", type='text') }}
+          <li id="botonSigListItem">
+            {{ form.siguiente(id='boton_siguiente') }}
           </li>
 
         </ul>
-        {{ form.siguiente(id='boton_siguiente') }}
       </form>
 
     </div>
@@ -114,7 +99,7 @@
   <footer>PASTO A PASTO <sup>®</sup></footer>
 
 
-  
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -124,6 +109,35 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      var addCount = 1;
+      $("#addNewField").click(function () {
+        var newInput = $("#subDirList");
+        newInput.append(GetDynamicTextBox("", addCount));
+        $("#subDirList").append(newInput);
+        addCount += 1;
+      });
+    });
+
+    function GetDynamicTextBox(value, addCount) {
+      return '<div>' + '<label>Medición&nbsp' + addCount + ':&nbsp</label>' +
+        '<span><input name = "subdir' + addCount + '"type="text" value = "' + value + '" />' +
+        '<button type="button" value="Remove" class="remove"><i class="far fa-trash-alt"></i></button></span>' + '</div>';
+    }
+
+    $(function () {
+      $("#addNewField").click(function () {
+        $("#subDirList").append(GetDynamicTextBox("", addCount));
+
+      });
+
+      $("body").on("click", ".remove", function () {
+        $(this).closest("div").remove();
+        addCount -= 1;
+      });
+    });
+  </script>
 </body>
 
 </html>

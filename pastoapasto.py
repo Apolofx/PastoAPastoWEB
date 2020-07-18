@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 from flask_wtf import FlaskForm
-from wtforms import StringField, DateField, SubmitField, SelectField, IntegerField
+from wtforms import StringField, DateField, SubmitField, SelectField, IntegerField, FieldList, TextField, FormField
 from wtforms.validators import DataRequired, NumberRange
 
 app = Flask(__name__)
@@ -46,11 +46,31 @@ def paso2():
 	return render_template('paso2.html', form=form)
 
 
-@app.route('/paso3')
+class SubDirForm(FlaskForm):
+    subDirName = TextField(validators=[DataRequired()])
+    
+class SubDirsForm(FlaskForm):
+    subDirList = FieldList(FormField(SubDirForm), min_entries=0)
+    siguiente = SubmitField()
+
+
+@app.route('/paso3', methods=['GET', 'POST'])
 def paso3():
-	form = PantallaPasoDos()
-	print(session.get('establecimiento'))
-	print(session.get('area-cuadrante'))
+	# user_subdirs = {}
+	# subdirs = user_subdirs
+	form = SubDirsForm()
+	if request.method == 'POST' and form.validate():
+		for entrada in form.subDirList.entries:
+			return print(entrada.data)
+	print(form.errors)
 	return render_template('paso3.html', form=form)
+
+
+# @app.route('/paso3')
+# def paso3():
+# 	form = PantallaPasoDos()
+# 	print(session.get('establecimiento'))
+# 	print(session.get('area-cuadrante'))
+# 	return render_template('paso3.html', form=form)
 
 

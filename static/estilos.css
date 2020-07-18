@@ -90,6 +90,16 @@ form {
     position: relative;
 }
 
+input[value=button] {
+    display: block;
+    border-radius: 3px;
+    width: 14em;
+    border: 1.2px;
+    border-style: solid;
+    border-color: #40404080;
+    outline-color:#21bf739f; 
+}
+
 ul {
     list-style-type: none;
     /*border: 1px solid green;*/
@@ -126,7 +136,12 @@ a.nav-link {
     color: #21bf73;
 } 
 
-#boton_siguiente {
+button.remove {
+    margin-left: 1em;
+    /* display: flex; */
+}
+
+#boton_siguiente, button.remove, #addNewField {
     border-radius: 3px;
     box-shadow: 0;
     border: 1.2px solid #cccccc;;
@@ -137,7 +152,7 @@ a.nav-link {
     outline: none;
 }
 
-#boton_siguiente:hover {
+#boton_siguiente:hover, button.remove:hover, #addNewField:hover {
     /*background-color: #21bf73;*/
     border-color: #21bf73;
     border-radius: 3px;
@@ -146,11 +161,47 @@ a.nav-link {
     box-shadow: 1px 1px 7px 2px #21bf73; /* h-offset v-offset blur spread color */
 }
 
-#boton_siguiente:active {
+#boton_siguiente:active, button.remove:active, #addNewField:active {
     transition: 0.9ms;
     padding-left: 10px;
     padding-right: 10px;
 } 
+
+button.remove:hover {
+    box-shadow: 1px 1px 3px 1px #e74b37; /* h-offset v-offset blur spread color */
+    border-color: #e74b37;
+    color: #e74b37;
+}
+
+ul>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    padding: 0;
+    position: relative;
+}
+
+ul>div>label {
+    align-self: start;
+    margin-bottom: 2px;
+}
+
+#addNewField {
+    margin-bottom: 1em;
+}
+
+#addFieldListItem, #botonSigListItem  {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.fas.fa-plus {
+    color:#21bf73;
+}
 
 .navbar-toggler {
     transition: 0.4s;
@@ -176,6 +227,6 @@ footer {
     text-align: center;
     padding-top: 2vh;
     margin-top: 2vh;
-    position: relative;
+    position: fixed;
     bottom: 0;
 }
