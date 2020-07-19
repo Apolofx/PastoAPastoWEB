@@ -22,7 +22,8 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class='page-container'>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" id="titulo" href="#">
       <img class="mb-2" id="logo" src="/static/logo.png" alt="logo-pasto-a-pasto">
       <span class="ml-2">Pasto a Pasto</span>
@@ -71,6 +72,8 @@
         </ul>
 
       </div>
+      <h5>Datos geográficos</h5>
+      <hr>
       <form action="" method="POST">
         {{ form.hidden_tag() }}
         <ul>
@@ -100,7 +103,7 @@
   </main>
 
   <footer>PASTO A PASTO <sup>®</sup></footer>
-
+</div>
 
   
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

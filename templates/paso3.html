@@ -22,7 +22,8 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class='page-container'>
+  <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" id="titulo" href="#">
       <img class="mb-2" id="logo" src="/static/logo.png" alt="logo-pasto-a-pasto">
       <span class="ml-2">Pasto a Pasto</span>
@@ -71,8 +72,10 @@
         </ul>
 
       </div>
+      <h5>Materia verde disponible</h5>
+      <hr>
       <form action="" method='POST'>
-        {{ form.hidden_tag()}}
+        {{ form.hidden_tag() }}
         <ul>
 
           <li id="addFieldListItem">
@@ -97,7 +100,7 @@
   </main>
 
   <footer>PASTO A PASTO <sup>®</sup></footer>
-
+</div>
 
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -111,7 +114,7 @@
     crossorigin="anonymous"></script>
   <script>
     $(document).ready(function () {
-      var addCount = 1;
+      var addCount = 2;
       $("#addNewField").click(function () {
         var newInput = $("#subDirList");
         newInput.append(GetDynamicTextBox("", addCount));
@@ -121,8 +124,8 @@
     });
 
     function GetDynamicTextBox(value, addCount) {
-      return '<div>' + '<label>Medición&nbsp' + addCount + ':&nbsp</label>' +
-        '<span><input name = "subdir' + addCount + '"type="text" value = "' + value + '" />' +
+      return '<div>' + '<label for="med-' + addCount + '">Medición&nbsp' + addCount + ':&nbsp</label>' +
+        '<span><input id="med-' + addCount +'" name = "subDirList-' + addCount + '"type="text" value = "' + value + '" required>' +
         '<button type="button" value="Remove" class="remove"><i class="far fa-trash-alt"></i></button></span>' + '</div>';
     }
 

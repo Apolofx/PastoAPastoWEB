@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, flash
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SubmitField, SelectField, IntegerField, FieldList, TextField, FormField
-from wtforms.validators import DataRequired, NumberRange
+from wtforms.validators import DataRequired, NumberRange, InputRequired
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess key'
@@ -46,23 +46,28 @@ def paso2():
 	return render_template('paso2.html', form=form)
 
 
-class SubDirForm(FlaskForm):
-    subDirName = TextField(validators=[DataRequired()])
+# class SubDirForm(FlaskForm):
+#     subDirName = StringField(validators=[DataRequired()])
     
 class SubDirsForm(FlaskForm):
-    subDirList = FieldList(FormField(SubDirForm), min_entries=0)
-    siguiente = SubmitField()
-
+    subDirList = FieldList(StringField(label = 'Medicion 1:', validators=[DataRequired()]), min_entries=1, max_entries=7)
+    siguiente = SubmitField('Siguiente')
 
 @app.route('/paso3', methods=['GET', 'POST'])
 def paso3():
-	# user_subdirs = {}
-	# subdirs = user_subdirs
 	form = SubDirsForm()
-	if request.method == 'POST' and form.validate():
-		for entrada in form.subDirList.entries:
-			return print(entrada.data)
-	print(form.errors)
+	if request.method == 'POST' and form.validate_on_submit():
+		contador = 0
+		for element in form.subDirList.data:
+			session['medicion' + str(contador)] = element
+			print(session.get('medicion' + str(contador)))
+			contador += 1
+		print(contador)
+		contador = 0
+		# print('validado')
+		# print(request.form.get('subdir2'))
+		print(form.subDirList.data)
+		return redirect(url_for('paso3'))
 	return render_template('paso3.html', form=form)
 
 
