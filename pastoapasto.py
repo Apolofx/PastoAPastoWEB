@@ -51,7 +51,7 @@ def paso2():
 #     subDirName = StringField(validators=[DataRequired()])
     
 class SubDirsForm(FlaskForm):
-    subDirList = FieldList(StringField(label = 'Medicion 1:', validators=[DataRequired()]), min_entries=1, max_entries=7)
+    subDirList = FieldList(StringField(label = 'Medicion 1:', validators=[DataRequired()]), min_entries=1)
     siguiente = SubmitField('Siguiente')
 
 @app.route('/paso3', methods=['GET', 'POST'])

@@ -9,7 +9,7 @@ body {
 body::after {
     content:"";
     background-image: url('/static/cattle.jpg');
-    background-size: 1800px 1100px;
+    background-size: 100%;
     background-repeat: no-repeat;
     opacity: 0.830;
     top: 0;
