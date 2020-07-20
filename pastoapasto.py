@@ -79,6 +79,7 @@ def paso3():
 # 	return render_template('paso3.html', form=form)
 
 
-
+# Esta linea la agregamos para que se corra la app de flask al ser
+# ejecutada por gunicorn
 if __name__ == '__main__':
 	app.run()
