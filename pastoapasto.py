@@ -79,3 +79,6 @@ def paso3():
 # 	return render_template('paso3.html', form=form)
 
 
+
+if __name__ == '__main__':
+	app.run()
