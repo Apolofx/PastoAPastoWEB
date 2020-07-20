@@ -60,8 +60,8 @@ def paso3():
 	if request.method == 'POST' and form.validate_on_submit():
 		contador = 0
 		for element in form.subDirList.data:
-			session['medicion' + str(contador)] = element
-			print(session.get('medicion' + str(contador)))
+			session['mvd' + str(contador)] = element
+			print(session.get('mvd' + str(contador)))
 			contador += 1
 		print(contador)
 		contador = 0
@@ -71,6 +71,22 @@ def paso3():
 		return redirect(url_for('paso3'))
 	return render_template('paso3.html', form=form)
 
+@app.route('/paso4', methods=['GET', 'POST'])
+def paso4():
+	form = SubDirsForm()
+	if request.method == 'POST' and form.validate_on_submit():
+		contador = 0
+		for element in form.subDirList.data:
+			session['mvr' + str(contador)] = element
+			print(session.get('mvr' + str(contador)))
+			contador += 1
+		print(contador)
+		contador = 0
+		# print('validado')
+		# print(request.form.get('subdir2'))
+		print(form.subDirList.data)
+		return redirect(url_for('paso4'))
+	return render_template('paso4.html', form=form)
 
 # @app.route('/paso3')
 # def paso3():
@@ -78,5 +94,3 @@ def paso3():
 # 	print(session.get('establecimiento'))
 # 	print(session.get('area-cuadrante'))
 # 	return render_template('paso3.html', form=form)
-
-

@@ -18,7 +18,7 @@
     rel="stylesheet">
 
 
-  <title>Pantalla 3 - Pasto a Pasto</title>
+  <title>Pantalla 4 - Pasto a Pasto</title>
 </head>
 
 <body>
@@ -64,15 +64,15 @@
             <a class="nav-link " href="{{ url_for('paso2') }}">Paso 2</a>
           </li>
           <li class="nav-item">
-            <a id="active" class="nav-link active" href="#">Paso 3</a>
+            <a class="nav-link" href="{{ url_for('paso3') }}">Paso 3</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('paso4') }}">Paso 4</a>
+            <a id="active" class="nav-link active" href="#">Paso 4</a>
           </li>
         </ul>
 
       </div>
-      <h5>Materia verde disponible</h5>
+      <h5>Materia verde remanente</h5>
       <hr>
       <form action="" method='POST'>
         {{ form.hidden_tag() }}
