@@ -21,6 +21,7 @@ class PantallaPasoDos(FlaskForm):
     lote = StringField(validators=[DataRequired()])
     siguiente = SubmitField("Siguiente")
 
+@app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
 	form = PantallaPasoUno()
