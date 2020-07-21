@@ -21,6 +21,7 @@ class PantallaPasoDos(FlaskForm):
     lote = StringField(validators=[DataRequired()])
     siguiente = SubmitField("Siguiente")
 
+@app.route('/', methods = ['GET', 'POST'])
 @app.route('/index', methods = ['GET', 'POST'])
 def index():
 	form = PantallaPasoUno()
@@ -50,7 +51,7 @@ def paso2():
 #     subDirName = StringField(validators=[DataRequired()])
     
 class SubDirsForm(FlaskForm):
-    subDirList = FieldList(StringField(label = 'Medicion 1:', validators=[DataRequired()]), min_entries=1, max_entries=7)
+    subDirList = FieldList(StringField(label = 'Medicion 1:', validators=[DataRequired()]), min_entries=1)
     siguiente = SubmitField('Siguiente')
 
 @app.route('/paso3', methods=['GET', 'POST'])
@@ -59,8 +60,8 @@ def paso3():
 	if request.method == 'POST' and form.validate_on_submit():
 		contador = 0
 		for element in form.subDirList.data:
-			session['medicion' + str(contador)] = element
-			print(session.get('medicion' + str(contador)))
+			session['mvd' + str(contador)] = element
+			print(session.get('mvd' + str(contador)))
 			contador += 1
 		print(contador)
 		contador = 0
@@ -70,13 +71,23 @@ def paso3():
 		return redirect(url_for('paso3'))
 	return render_template('paso3.html', form=form)
 
+@app.route('/paso4', methods=['GET', 'POST'])
+def paso4():
+	form = SubDirsForm()
+	if request.method == 'POST' and form.validate_on_submit():
+		contador = 0
+		for element in form.subDirList.data:
+			session['mvr' + str(contador)] = element
+			print(session.get('mvr' + str(contador)))
+			contador += 1
+		print(contador)
+		contador = 0
+		# print('validado')
+		# print(request.form.get('subdir2'))
+		print(form.subDirList.data)
+		return redirect(url_for('paso4'))
+	return render_template('paso4.html', form=form)
 
-# @app.route('/paso3')
-# def paso3():
-# 	form = PantallaPasoDos()
-# 	print(session.get('establecimiento'))
-# 	print(session.get('area-cuadrante'))
-# 	return render_template('paso3.html', form=form)
 
 
 # Esta linea la agregamos para que se corra la app de flask al ser
